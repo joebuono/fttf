@@ -3,8 +3,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import { List, ListItem } from 'material-ui/List'
 import RaisedButton from 'material-ui/RaisedButton';
+import SpottersList from './SpottersList.jsx';
 
-class FormPersonalDetails extends Component {
+class Confirm extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -24,11 +25,11 @@ class FormPersonalDetails extends Component {
   }
 
   render() {
-    const { firstName, lastName, email, goal, verb, frequency, duration, startDate } = this.props.values;
+    const { firstName, lastName, email, goal, verb, frequency, duration, startDate, spotters, stake } = this.props.values;
     return (
       <MuiThemeProvider>
         <React.Fragment>
-          <AppBar title="Confirm User Data" />
+          <AppBar title="Confirm Your Goal" />
           <List>
             <ListItem 
               primaryText="First Name"
@@ -45,27 +46,27 @@ class FormPersonalDetails extends Component {
             <ListItem 
               primaryText="Goal"
               secondaryText={goal}
-            />
-            <ListItem 
-              primaryText="Verb"
-              secondaryText={verb}
-            />    
+            />  
             <ListItem 
               primaryText="Frequency"
-              secondaryText={frequency}
+              secondaryText={`${frequency} days per week`}
             />  
             <ListItem 
               primaryText="Duration"
-              secondaryText={duration}
+              secondaryText={`${duration} weeks`}
             />  
              <ListItem 
               primaryText="Start Date"
               secondaryText={startDate}
-            />                                      
+            />
+            <ListItem 
+              primaryText="Spotters:"
+            />                                    
           </List>
+          <SpottersList spotters={spotters} />     
           <br/>
           <RaisedButton 
-            label="Confirm & Continue"
+            label="HOLD MY FEET TO THE FIRE!"
             primary={true}
             style={styles.button}
             onClick={this.continue}
@@ -88,4 +89,4 @@ const styles = {
   }
 };
 
-export default FormPersonalDetails;
+export default Confirm;

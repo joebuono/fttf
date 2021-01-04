@@ -7,8 +7,9 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+
+import DatePickers from './DatePickers.jsx';
 
 class FormWhen extends Component {
   constructor(props) {
@@ -77,12 +78,7 @@ class FormWhen extends Component {
           </FormControl>
           <br/>
           <br/>
-          <TextField 
-            hintText="e.g., meditated, worked out, etc)"
-            floatingLabelText="Enter your past tense verb"
-            onChange={handleChange('verb')}
-            defaultValue={values.verb}
-          />
+          <DatePickers handleChange={handleChange} />
           <br/>
           <RaisedButton 
             label="Continue"
