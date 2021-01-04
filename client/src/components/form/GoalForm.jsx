@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FormBasicInfo from './FormBasicInfo.jsx';
 import FormGoalVerb from './FormGoalVerb.jsx';
+import FormWhen from './FormWhen.jsx';
 import Confirm from './Confirm.jsx';
 import Success from './Success.jsx';
 
@@ -14,6 +15,9 @@ class GoalForm extends Component {
       email: '', 
       goal: '', 
       verb: '', 
+      frequency: '',
+      duration: '',
+      startDate: ''
     }
     this.nextStep = this.nextStep.bind(this);
     this.prevStep = this.prevStep.bind(this);
@@ -46,8 +50,8 @@ class GoalForm extends Component {
 
   render() {
     const {step } = this.state;
-    const { firstName, lastName, email, goal, verb } = this.state;
-    const values = { firstName, lastName, email, goal, verb };
+    const { firstName, lastName, email, goal, verb, frequency, duration, startDate } = this.state;
+    const values = { firstName, lastName, email, goal, verb, frequency, duration, startDate };
     switch(step) {
       case 1: 
         return (
@@ -68,13 +72,22 @@ class GoalForm extends Component {
         )
       case 3:
         return (
+          <FormWhen 
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            handleChange={this.handleChange}
+            values={values}
+          />
+        )        
+      case 4:
+        return (
           <Confirm 
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             values={values}
           />
         )
-      case 4:
+      case 5:
         return <Success />
     }
   }
