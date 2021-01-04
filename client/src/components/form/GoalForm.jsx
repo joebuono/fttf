@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FormUserDetails from './FormUserDetails.jsx';
+import FormBasicInfo from './FormBasicInfo.jsx';
 import FormPersonalDetails from './FormPersonalDetails.jsx';
 import Confirm from './Confirm.jsx';
 import Success from './Success.jsx';
@@ -52,7 +52,7 @@ class GoalForm extends Component {
     switch(step) {
       case 1: 
         return (
-          <FormUserDetails 
+          <FormBasicInfo 
             nextStep={this.nextStep}
             handleChange={this.handleChange}
             values={values}

@@ -4,7 +4,7 @@ import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
-class FormUserDetails extends Component {
+class FormBasicInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -21,7 +21,7 @@ class FormUserDetails extends Component {
     return (
       <MuiThemeProvider>
         <React.Fragment>
-          <AppBar title="Enter User Details" />
+          <AppBar title="Basic Info" />
           <TextField 
             hintText="Enter Your First Name"
             floatingLabelText="First Name"
@@ -61,4 +61,4 @@ const styles = {
   }
 };
 
-export default FormUserDetails;
+export default FormBasicInfo;
