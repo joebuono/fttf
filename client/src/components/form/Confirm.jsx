@@ -24,7 +24,7 @@ class FormPersonalDetails extends Component {
   }
 
   render() {
-    const { firstName, lastName, email, occupation, city, bio } = this.props.values;
+    const { firstName, lastName, email, goal, verb } = this.props.values;
     return (
       <MuiThemeProvider>
         <React.Fragment>
@@ -43,17 +43,13 @@ class FormPersonalDetails extends Component {
               secondaryText={email}
             />
             <ListItem 
-              primaryText="Occupation"
-              secondaryText={occupation}
+              primaryText="Goal"
+              secondaryText={goal}
             />
             <ListItem 
-              primaryText="City"
-              secondaryText={city}
-            />
-            <ListItem 
-              primaryText="Bio"
-              secondaryText={bio}
-            />        
+              primaryText="Verb"
+              secondaryText={verb}
+            />     
           </List>
           <br/>
           <RaisedButton 

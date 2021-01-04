@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FormBasicInfo from './FormBasicInfo.jsx';
-import FormPersonalDetails from './FormPersonalDetails.jsx';
+import FormGoalVerb from './FormGoalVerb.jsx';
 import Confirm from './Confirm.jsx';
 import Success from './Success.jsx';
 
@@ -12,9 +12,8 @@ class GoalForm extends Component {
       firstName: '',
       lastName: '', 
       email: '', 
-      occupation: '', 
-      city: '', 
-      bio: '', 
+      goal: '', 
+      verb: '', 
     }
     this.nextStep = this.nextStep.bind(this);
     this.prevStep = this.prevStep.bind(this);
@@ -47,8 +46,8 @@ class GoalForm extends Component {
 
   render() {
     const {step } = this.state;
-    const { firstName, lastName, email, occupation, city, bio } = this.state;
-    const values = { firstName, lastName, email, occupation, city, bio };
+    const { firstName, lastName, email, goal, verb } = this.state;
+    const values = { firstName, lastName, email, goal, verb };
     switch(step) {
       case 1: 
         return (
@@ -60,7 +59,7 @@ class GoalForm extends Component {
         )
       case 2:
         return (
-          <FormPersonalDetails 
+          <FormGoalVerb 
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             handleChange={this.handleChange}

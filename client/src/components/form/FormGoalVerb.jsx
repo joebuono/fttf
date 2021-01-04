@@ -4,7 +4,7 @@ import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
-class FormPersonalDetails extends Component {
+class FormGoalVerb extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -27,26 +27,19 @@ class FormPersonalDetails extends Component {
     return (
       <MuiThemeProvider>
         <React.Fragment>
-          <AppBar title="Enter Personal Details" />
+          <AppBar title="What's your goal?" />
           <TextField 
-            hintText="Enter Your Occupation"
-            floatingLabelText="Occupation"
-            onChange={handleChange('occupation')}
-            defaultValue={values.occupation}
+            hintText="e.g., Meditate, Work Out"
+            floatingLabelText="Enter your goal"
+            onChange={handleChange('goal')}
+            defaultValue={values.goal}
           />
           <br/>
           <TextField 
-            hintText="Enter Your City"
-            floatingLabelText="City"
-            onChange={handleChange('city')}
-            defaultValue={values.city}
-          />
-          <br/>
-          <TextField 
-            hintText="Enter Your Bio"
-            floatingLabelText="Bio"
-            onChange={handleChange('bio')}
-            defaultValue={values.bio}
+            hintText="e.g., meditated, worked out, etc)"
+            floatingLabelText="Enter your past tense verb"
+            onChange={handleChange('verb')}
+            defaultValue={values.verb}
           />
           <br/>
           <RaisedButton 
@@ -73,4 +66,4 @@ const styles = {
   }
 };
 
-export default FormPersonalDetails;
+export default FormGoalVerb;
