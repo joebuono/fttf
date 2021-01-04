@@ -46,24 +46,25 @@ class Confirm extends Component {
             <ListItem 
               primaryText="Goal"
               secondaryText={goal}
-            />  
+            />
             <ListItem 
               primaryText="Frequency"
               secondaryText={`${frequency} days per week`}
-            />  
+            />
             <ListItem 
               primaryText="Duration"
               secondaryText={`${duration} weeks`}
-            />  
+            />
              <ListItem 
               primaryText="Start Date"
               secondaryText={startDate}
             />
-            <ListItem 
-              primaryText="Spotters:"
-            />                                    
           </List>
-          <SpottersList spotters={spotters} />     
+            <ListItem 
+              primaryText="Stake"
+              secondaryText={`$${stake}`}
+            />
+          <SpottersList spotters={spotters} />
           <br/>
           <RaisedButton 
             label="HOLD MY FEET TO THE FIRE!"

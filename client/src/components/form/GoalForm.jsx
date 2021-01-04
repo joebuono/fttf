@@ -119,7 +119,7 @@ class GoalForm extends Component {
           />
         )
       case 7:
-        return <Success />
+        return <Success values={values} />
     }
   }
 }
