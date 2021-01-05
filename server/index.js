@@ -6,11 +6,6 @@ require('dotenv').config();
 app.use(express.static('client/dist'));
 app.use(express.json());
 
-app.get('/sendemail', (req, res) => {
-  console.log('inside get route');
-  res.status(200).send('accessed the GET route!');
-});
-
 app.post('/sendemail', (req, res) => {
   const { firstName, lastName, verb, stake } = req.body;
   const transporter = nodemailer.createTransport({
