@@ -4,7 +4,7 @@ import { List, ListItem } from 'material-ui/List'
 const SpottersList = ({spotters}) => {
   return (
       <List>
-        {spotters.map(spotter => <ListItem primaryText={spotter.spotterName} secondaryText={spotter.spotterEmail} />)}
+        {spotters.map((spotter, index) => <ListItem key={index} primaryText={spotter.spotterName} secondaryText={spotter.spotterEmail} />)}
       </List>
   );
 };

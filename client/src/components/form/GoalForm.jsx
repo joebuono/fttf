@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LandingPage from './LandingPage.jsx';
 import FormBasicInfo from './FormBasicInfo.jsx';
 import FormGoalVerb from './FormGoalVerb.jsx';
 import FormWhen from './FormWhen.jsx';
@@ -66,6 +67,8 @@ class GoalForm extends Component {
     const values = { firstName, lastName, email, goal, verb, frequency, duration, startDate, spotters, stake };
     switch(step) {
       case 1: 
+        return <LandingPage nextStep={this.nextStep} />
+      case 2: 
         return (
           <FormBasicInfo 
             nextStep={this.nextStep}
@@ -73,7 +76,7 @@ class GoalForm extends Component {
             values={values}
           />
         )
-      case 2:
+      case 3:
         return (
           <FormGoalVerb 
             nextStep={this.nextStep}
@@ -82,7 +85,7 @@ class GoalForm extends Component {
             values={values}
           />
         )
-      case 3:
+      case 4:
         return (
           <FormWhen 
             nextStep={this.nextStep}
@@ -91,7 +94,7 @@ class GoalForm extends Component {
             values={values}
           />
         )   
-      case 4:
+      case 5:
         return (
           <FormSpotters 
             nextStep={this.nextStep}
@@ -101,7 +104,7 @@ class GoalForm extends Component {
             values={values}
           />
         )  
-      case 5:
+      case 6:
         return (
           <FormStake 
             nextStep={this.nextStep}
@@ -110,7 +113,7 @@ class GoalForm extends Component {
             values={values}
           />
         )     
-      case 6:
+      case 7:
         return (
           <Confirm 
             nextStep={this.nextStep}
@@ -118,7 +121,7 @@ class GoalForm extends Component {
             values={values}
           />
         )
-      case 7:
+      case 8:
         return <Success values={values} />
     }
   }

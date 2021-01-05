@@ -59,7 +59,6 @@ class FormSpotters extends Component {
   }
 
   render() {
-    console.log('rendering spotters form', this.props.values.spotters);
     const { values, handleChange } = this.props;
     return (
       <MuiThemeProvider>

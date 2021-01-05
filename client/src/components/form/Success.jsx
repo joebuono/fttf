@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
+import axios from 'axios';
 
 class Success extends Component {
   constructor(props) {
@@ -16,7 +17,16 @@ class Success extends Component {
 
   handleButtonClick() {
     if (!this.state.clickedButtonToday) {
+      const { firstName, lastName, verb, stake } = this.props.values;
       // get server to email them
+      axios.post('/sendemail', {
+        firstName,
+        lastName,
+        verb,
+        stake
+      })
+        .then(console.log)
+        .catch(err => console.log(`There was an error in posting to the server, ${err}`))
       this.setState({
         streak: this.state.streak + 1,
         clickedButtonToday: true
@@ -34,13 +44,13 @@ class Success extends Component {
       <MuiThemeProvider>
         <React.Fragment>
           <AppBar title={`${values.firstName} ${values.lastName}'s Profile Page`} />
-          <h2>{`${values.firstName} is betting $${values.stake} that he can ${values.goal} ${values.frequency} times per week for ${values.duration} weeks straight!`}</h2>
-          <h3>{`These spotters are holding him accountable for reaching the goal:`}</h3>
+          <h2 style={{fontFamily: "Arial"}}>{`${values.firstName} is betting $${values.stake} that he can ${values.goal} ${values.frequency} times per week for ${values.duration} weeks straight!`}</h2>
+          <h3 style={{fontFamily: "Arial"}}>{`These spotters are holding ${values.firstName} accountable for reaching the goal:`}</h3>
           <ul>
-            {values.spotters.map(spotter => <li>{spotter.spotterName}</li>)}
+            {values.spotters.map((spotter, index) => <li key={index} style={{fontFamily: "Arial"}}>{spotter.spotterName}</li>)}
           </ul>
-          <h3>Current Streak:</h3>
-          {this.state.streak ? '🔥' : "Hasn't started yet..."}
+          <h3 style={{fontFamily: "Arial"}}>Current Streak:</h3>
+          {this.state.streak ? '🔥' : <p style={{fontFamily: "Arial"}}>Hasn't started yet...</p>}
           <br/>
           <RaisedButton 
             label={`I ${values.verb} today!`}
